@@ -66,7 +66,7 @@
 
 # In[1]:
 
-get_ipython().magic('matplotlib inline')
+#get_ipython().magic('matplotlib inline')
 import numpy as np
 from matplotlib import pyplot as plt
 
@@ -106,7 +106,7 @@ plt.show()
 
 # In[2]:
 
-get_ipython().magic('matplotlib inline')
+#get_ipython().magic('matplotlib inline')
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
@@ -192,7 +192,7 @@ print(t_max)
 
 # In[3]:
 
-get_ipython().magic('matplotlib inline')
+#get_ipython().magic('matplotlib inline')
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -211,7 +211,7 @@ r = 0.0 # the number of even that both of rabbits and foxes died out
 
 # while loop
 j = 0
-n = 2000
+n = 20
 
 # Create empty lists for the second fox peak and its corresponding time
 f_peak = []
@@ -243,7 +243,7 @@ while j < n:
             j = j + 1
             r = r + 1    # the possibility that both rabbits and foxes die out
             break
-        v = np.random.rand ()
+        v = 1 - np.random.rand () #rids possibility of division by zero
         delta_t = ( 1 / Q ) * (np.log (1 / v))
         t.append ( t [i] + delta_t )
         u = np.random.rand()
@@ -259,15 +259,14 @@ while j < n:
                 if R_2 < m <= R_3:
                     R.append(R[i])
                     F.append(F[i] + 1)
-                else:
-                    if R_3 < m <= Q:
-                        R.append(R[i])
-                        F.append(F[i] - 1)    
+                else: #No need to have last if statement. If it gets to this point, it will be true by default
+                    R.append(R[i])
+                    F.append(F[i] - 1)
         if t[-1] >=600:
             j = j + 1
             break
     if F [i] == 0:
-        f  += 1 
+        f  += 1
     # plot figure that foxes die out
         plt.figure (1)
         plt.plot(t, R, 'r')
@@ -299,8 +298,8 @@ while j < n:
 plt.show()
 
 # Possibility
-p = f / j * 100  #the possibility that only foxes die out
-p_1 = r / j * 100 # the possibility that both die out
+p = round(f / j * 100, 2)  #the possibility that only foxes die out
+p_1 = round(r / j * 100, 2) # the possibility that both die out
 
 
 # Expected second peak
