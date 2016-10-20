@@ -62,11 +62,9 @@
 # R_{n+1} & = R_n + \Delta t \left(k_1 R_n - k_2 R_n F_n \right) \\
 # F_{n+1} & = F_n + \Delta t \left( k_3 R_n F-n - k_4 F_n \right).
 # \end{align}
-# 
+#
 
-# In[1]:
-
-get_ipython().magic('matplotlib inline')
+# get_ipython().magic('matplotlib inline') # Not functional in PyCharm
 import numpy as np
 from matplotlib import pyplot as plt
 
@@ -104,9 +102,7 @@ legend = plt.legend(loc = 'upper right')
 plt.show()
 
 
-# In[2]:
-
-get_ipython().magic('matplotlib inline')
+# get_ipython().magic('matplotlib inline')
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
@@ -189,10 +185,7 @@ for i in range (len(F_1)):
 print('The day when the number of foxes reach the maximum value:')
 print(t_max)
 
-
-# In[3]:
-
-get_ipython().magic('matplotlib inline')
+# get_ipython().magic('matplotlib inline')
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -320,9 +313,6 @@ print ("The probability that both die out before 600 days are complete: {} %.". 
 print ("The expected location of the second peak in foxes: {} foxes at {} day.". format (ave_peak, ave_t,))
 print ("The interquartile range of the second peak in foxes: {} - {}, foxes at {} - {} days.". format(IQR1_peak, IQR3_peak,IQR1_t,IQR3_t,))
 
-
-# In[ ]:
-
 # What I learned from this assignment
 # 1. It is interesting to learn KMC method, which is based on the possibility of kinetic events.
 #    Based on the plot, it seems like there is a little connection between KMC and Euler & odeint method.
@@ -331,24 +321,6 @@ print ("The interquartile range of the second peak in foxes: {} - {}, foxes at {
 #    die out at the same time. However, in the previous coding, I was trying to apply a "while" loop 
 #    to void Q equal to "0.0", which takes much more time and it is not accurate
 # 3. It might be good to learn how to improve runing time.
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
 
 
 
